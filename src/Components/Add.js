@@ -19,13 +19,13 @@ export const Add = ({props}) => {
 		let vals_map = {
 			word: vals[0],
 			meaning: vals[1],
-			time: (new Date).getTime(),
+			time: (new Date()).getTime(),
 			labels: [],
 			keys: [],
 			vals: [],
 		}
 		for (let i=2; i<vals.length; i++) {
-			if (i%2 == 0) {
+			if (i%2 === 0) {
 				vals_map.keys.push(vals[i]);
 			} else {
 				vals_map.vals.push(vals[i])
