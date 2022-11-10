@@ -71,3 +71,8 @@ code {
 .fa-sun {
   color: yellow;
 }
+
+/* TABLE ROW DATA */
+td, th {
+  padding: 0.4rem 1rem;
+}
