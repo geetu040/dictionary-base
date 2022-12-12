@@ -28,6 +28,22 @@ export const PopUp = ({ props }) => {
 		)
 	}
 
+	//  ======== SAVE WORD ======== 
+	if (props.pop === "save_data") {
+		return (
+			<div className={`
+			${common_css}
+			text-light bg-dark
+			font-bold text-xl font-mono
+			animate-bounce
+		`}>
+				<button onClick={() => { props.set_pop(null) }} className='absolute right-2 top-0 font-bold text-light dark:text-info opacity-60 hover:opacity-100'>X</button>
+				Dictionary Saved !
+			</div>
+		)
+	}
+
+	//  ======== EDIT WORD ======== 
 	if (props.pop === "edit") {
 
 
@@ -41,18 +57,19 @@ export const PopUp = ({ props }) => {
 		}
 		// ind = 3;
 		let v;
-		if (!ind) {
+		if (ind === null) {
 			//  ======== EDIT NOTHING SELECTED ======== 
 			setTimeout(() => {
 				props.set_pop(null);
 			}, 2000);
 		} else {
-			//  ======== EDIT ======== 
+			//  ======== EDIT ========
 			v = props.vocab[ind];
 			if (n_keys === null) {
 				set_n_keys(v.keys.length)
 				set_n_labels(v.labels.length)
 			}
+
 		}
 
 

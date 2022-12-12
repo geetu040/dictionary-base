@@ -5,7 +5,7 @@ export const Navbar = ({props}) => {
 	return (<>
 
 		<div className='fixed w-[100vw] px-9 py-2 flex items-center justify-between bg-dark-trans'>
-			<div onClick={()=>{ if (props.vocab === props.vocab0) {props.set_vocab(props.vocab1)} else {props.set_vocab(props.vocab0)}} } className='border border-dark dark:border-info bg-light text-dark dark:bg-dark dark:text-info px-3 py-1 cursor-pointer font-semibold rounded-lg font-mono'>
+			<div onClick={()=>{}} className='border border-dark dark:border-info bg-light text-dark dark:bg-dark dark:text-info px-3 py-1 cursor-pointer font-semibold rounded-lg font-mono'>
 				Home
 			</div>
 			<div className="w-[50px] h-[25px] cursor-pointer">

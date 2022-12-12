@@ -2,7 +2,6 @@ import { Navbar } from "./Components/Navbar";
 import { Base } from "./Components/Base";
 import { PopUp } from "./Components/PopUp";
 
-import vocab1 from "./lexicons/lexicon1.json"
 
 import { useState } from "react";
 import {
@@ -11,13 +10,23 @@ import {
 	Route,
 } from "react-router-dom";
 
+// import vocab1 from "./lexicons/lexicon1.json"
+import { load_data } from './firebase';
 
 function App() {
 
 	const [dark_mode, set_dark_mode] = useState(false);
 	const [pop, set_pop] = useState(null);			// add_word | edit | null
-	const [vocab, set_vocab] = useState(vocab1);	// vocab0 | vocab1
+	const [vocab, set_vocab] = useState(null);	// vocab0 | vocab1
 
+	const fetchPost = async () => {
+		const new_data = await load_data();
+		set_vocab(new_data);
+	}
+	if (!vocab) {
+		fetchPost();
+		return <>Loading ...</>
+	}
 
 	function send_pop(type, time) {
 		set_pop(type);
@@ -31,7 +40,6 @@ function App() {
 		dark_mode, set_dark_mode,
 		pop, set_pop, send_pop,
 		vocab, set_vocab,
-		vocab0, vocab1,
 	}
 
 	return (

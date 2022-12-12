@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { save_data } from '../firebase';
 
 export const BottomNav = ({props}) => {
 
@@ -57,6 +58,11 @@ export const BottomNav = ({props}) => {
 		unSelectAll()
 	}
 
+	const save = () => {
+		save_data(props.vocab);
+		props.send_pop("save_data", 2000);
+	}
+
 	return (
 		<nav className='font-mono fixed flex flex-row flex-wrap bg-light-trans dark:bg-dark-trans bottom-0 justify-center pt-2' style={{ width: "inherit" }}>
 			<button className={btnStyle} onClick={addWord}>Add Word</button>
@@ -65,7 +71,7 @@ export const BottomNav = ({props}) => {
 			<button className={btnStyle} onClick={unSelectAll}>Unselect All</button>
 			<button className={btnStyle} onClick={deleteWord}>Delete</button>
 			<button className={btnStyle} onClick={sort}>Sort</button>
-
+			<button className={btnStyle} onClick={save}>Save</button>
 		</nav>
 	)
 }
